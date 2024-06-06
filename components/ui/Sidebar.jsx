@@ -1,21 +1,112 @@
-/**
- * v0 by Vercel.
-//  * @see https://v0.dev/t/oO8WwIeqpEK
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-// import { Badge } from "@/components/ui/badge";
-import { Kanban } from "@/components/ui/Kanban";
-import { Sidebar } from "@/components/ui/Sidebar";
+import React from "react";
 
-export default function Component() {
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+
+const Sidebar = () => {
   return (
-    <div className="flex">
-      <Sidebar />
-      <Kanban />
+    <div className="hidden h-full border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+      <div className="flex h-full max-h-screen flex-col gap-2">
+        <div className="flex h-[60px] items-center border-b px-6">
+          <Link
+            href="#"
+            className="flex items-center gap-2 font-semibold"
+            prefetch={false}
+          >
+            <Package2Icon className="h-6 w-6" />
+            <span className="">Freelance CRM</span>
+          </Link>
+          <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
+            <BellIcon className="h-4 w-4" />
+            <span className="sr-only">Toggle notifications</span>
+          </Button>
+        </div>
+        <div className="flex-1 overflow-auto py-2">
+          <nav className="grid items-start px-4 text-sm font-medium">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="justify-start gap-2"
+              asChild
+            >
+              <Link href="#" className="gap-2" prefetch={false}>
+                <HomeIcon className="h-4 w-4" />
+                Dashboard
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="justify-start gap-2"
+              asChild
+            >
+              <Link href="#" className="gap-2" prefetch={false}>
+                <BriefcaseIcon className="h-4 w-4" />
+                Projects
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="justify-start gap-2"
+              asChild
+            >
+              <Link href="#" className="gap-2" prefetch={false}>
+                <UsersIcon className="h-4 w-4" />
+                Clients
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="justify-start gap-2"
+              asChild
+            >
+              <Link href="#" className="gap-2" prefetch={false}>
+                <CalendarIcon className="h-4 w-4" />
+                Calendar
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="justify-start gap-2"
+              asChild
+            >
+              <Link href="#" className="gap-2" prefetch={false}>
+                <SettingsIcon className="h-4 w-4" />
+                Settings
+              </Link>
+            </Button>
+          </nav>
+        </div>
+        <div className="mt-auto p-4">
+          <Card>
+            <CardHeader className="pb-4">
+              <CardTitle>Upgrade to Pro</CardTitle>
+              <CardDescription>
+                Unlock all features and get unlimited access to our support team
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button size="sm" className="w-full">
+                Upgrade
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
-}
-
+};
 function BellIcon(props) {
   return (
     <svg
@@ -35,7 +126,6 @@ function BellIcon(props) {
     </svg>
   );
 }
-
 function BriefcaseIcon(props) {
   return (
     <svg
@@ -55,7 +145,6 @@ function BriefcaseIcon(props) {
     </svg>
   );
 }
-
 function CalendarIcon(props) {
   return (
     <svg
@@ -77,28 +166,6 @@ function CalendarIcon(props) {
     </svg>
   );
 }
-
-function DeleteIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z" />
-      <line x1="18" x2="12" y1="9" y2="15" />
-      <line x1="12" x2="18" y1="9" y2="15" />
-    </svg>
-  );
-}
-
 function HomeIcon(props) {
   return (
     <svg
@@ -115,30 +182,6 @@ function HomeIcon(props) {
     >
       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
       <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  );
-}
-
-function MoveIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="5 9 2 12 5 15" />
-      <polyline points="9 5 12 2 15 5" />
-      <polyline points="15 19 12 22 9 19" />
-      <polyline points="19 9 22 12 19 15" />
-      <line x1="2" x2="22" y1="12" y2="12" />
-      <line x1="12" x2="12" y1="2" y2="22" />
     </svg>
   );
 }
@@ -163,27 +206,6 @@ function Package2Icon(props) {
     </svg>
   );
 }
-
-function SearchIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
 function SettingsIcon(props) {
   return (
     <svg
@@ -203,7 +225,6 @@ function SettingsIcon(props) {
     </svg>
   );
 }
-
 function UsersIcon(props) {
   return (
     <svg
@@ -225,19 +246,4 @@ function UsersIcon(props) {
     </svg>
   );
 }
-//
-//Create a component and define a createClerkSupabaseClient method. This method returns a client that connects to Supabase with an authentication token from your Clerk JWT template:
-// page.tsx
-// create function for supabaseclient
-// get the supabase token
-// constract headers
-// call the fetch function
-
-//  Next, define a component with methods for listing addresses from and sending addresses to your database:
-//  route.js - api for sending user data to supabase db
-//  how to fetch data from supabase table
-// steps to execute for dashboard page
-// 1. Create Dashboard Layout: Design the overall layout of the dashboard, including the sidebar, header, and main content area.
-// Task Management Sections:Create components for different sections such as Backlog, To-Do, In Progress, and Done.
-// Task Cards: Design task cards to display project details such as title, client, due date, and status.
-// Drag and Drop Functionality: Implement drag-and-drop functionality to allow users to move tasks between different sections
+export { Sidebar };

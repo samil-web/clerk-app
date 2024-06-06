@@ -1,9 +1,10 @@
-import { SignUp } from '@clerk/nextjs';
+import { SignUp, SignUpButton } from "@clerk/nextjs";
 
 const SignUpPage = () => {
   return (
     <>
       <SignUp />
+      // <SignUpButton />
     </>
   );
 };
